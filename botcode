@@ -1,0 +1,178 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+
+public class Bot extends JFrame {
+
+	//THIS IS THE TYPING AREA:
+	private JTextField txtEnter = new JTextField();
+	
+	//THIS IS THE INPUT AREA:
+	private JTextArea txtChat = new JTextArea();
+	
+	public Bot() {
+		//FRAME ATTRIBUTES:
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(600, 600);
+		this.setVisible(true);
+		this.setResizable(false);
+		this.setLayout(null);
+		this.setTitle("Career Listener");
+		
+		//TEXTBOX ATTRIBUTES:
+		txtEnter.setLocation(2, 540);
+		txtEnter.setSize(590, 30);
+		
+		//TEXT ACTION:
+		txtEnter.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				String uText = txtEnter.getText();
+				txtChat.append("You: " + uText + "\n");
+				
+				if(uText.contains("hi")){
+					botSay("Hello there! Tell me your interests.");
+				}
+		
+				else if(uText.contains("career")){
+				    botSay("What are your interests?");
+				}
+				else if(uText.contains("animal")){
+				    botSay("You should be a veternarian.");
+				}
+				else if(uText.contains("data")){
+				    botSay("Artificial Intelligence will be a good fit for you.");
+				}
+				else if(uText.contains("money")){
+				    botSay("You might like accounting.");
+				}
+				else if(uText.contains("computer")){
+				    botSay("You should try engineering.");
+				}
+				else if(uText.contains("community")){
+				    botSay("A teacher might interest you.");
+				}
+				else if(uText.contains("legal")){
+				    botSay("A lawyer sounds like a good job for you.");
+				}
+				else if(uText.contains("paint")){
+				    botSay("You should be an artist.");
+				}
+				else if(uText.contains("write")){
+				    botSay("You should be a writer.");
+				}
+				else if(uText.contains("food")){
+				    botSay("You should be a chef.");
+				}
+				else if(uText.contains("athlete")){
+				    botSay("You should be a coach.");
+				}
+				else if(uText.contains("chemistry")){
+				    botSay("You should be a chemist.");
+				}
+				else if(uText.contains("biology")){
+				    botSay("You should be a biologist.");
+				}
+				else if(uText.contains("fix")){
+				    botSay("Jobs in hardware might suit you.");
+				}
+				else if(uText.contains("boss")){
+				    botSay("You should be business.");
+				}
+				else if(uText.contains("design")){
+				    botSay("Architecture sounds perfect for you!");
+				}
+				else if(uText.contains("brain")){
+				    botSay("You should be a neuroscientist.");
+				}
+				else if(uText.contains("emergency")){
+				    botSay("You should be a doctor.");
+				}
+				else if(uText.contains("stock")){
+				    botSay("You should be a investor.");
+				}
+				else if(uText.contains("government")){
+				    botSay("Am I speaking to the next president?");
+				}
+				else if(uText.contains("therapy")){
+				    botSay("You should be a therapist.");
+				}
+				else if(uText.contains("zoo")){
+				    botSay("You should be a zoologist.");
+				}
+				else if(uText.contains("photograph")){
+				    botSay("You should be a NATGEO photographer.");
+				}
+				else if(uText.contains("drive")){
+				    botSay("You should be a taxi driver.");
+				}
+				else if(uText.contains("cities")){
+				    botSay("You should be a tour guide.");
+				}
+				else if(uText.contains("manage")){
+				    botSay("You should be a manager.");
+				}
+				else if(uText.contains("college")){
+				    botSay("Education is the first step to a job.");
+				}
+				else if(uText.contains("mobile")){
+				    botSay("You should be a mobile developer.");
+				}
+				else if(uText.contains("stars")){
+				    botSay("You should be an astronomer.");
+				}
+				else if(uText.contains("agriculture")){
+				    botSay("You should be a farmer.");
+				}
+				else if(uText.contains("act")){
+				    botSay("You should be an actor.");
+				}
+				else if(uText.contains("motivation")){
+				    botSay("You should be a motivational speaker.");
+				}
+				else if(uText.contains("teeth")){
+				    botSay("You should be a dentist.");
+				
+                                }
+                                else if(uText.contains("bye")){
+				    botSay("Bye! Hope I was useful.");
+				
+                                }
+				else{
+					int decider = (int) (Math.random()*3+1);
+					if(decider == 1){
+						botSay("I didn't get that");
+					}
+					else if(decider == 2){
+						botSay("Please rephrase that");
+					}
+				
+				}
+				txtEnter.setText("");
+			}
+
+		});
+		
+		//TEXT BOX ATTRIBUTES:
+		txtChat.setLocation(15, 5);
+		txtChat.setSize(560, 510);
+		txtChat.setEditable(false);
+		
+		//ADD TO CHATBOX:
+		this.add(txtEnter);
+		this.add(txtChat);
+	}
+	
+	public void botSay(String s){
+		txtChat.append("AI: " + s + "\n");
+	}
+	
+	//CREATE NEW CHATBOT
+	public static void main(String[] args){
+		new Bot();
+	}
+
+}
